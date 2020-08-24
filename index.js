@@ -80,7 +80,25 @@ console.log(noOfChoices);
 $("#submit").html("Again");
 
 // Rolling Dice
-  diceRoll();
+// 1st dice
+var randomNumber1 = Math.floor(Math.random() * 6 + 1);
+var Image1 = "dice" + randomNumber1 + ".png";
+document.querySelectorAll("img")[1].setAttribute("src", Image1);
+
+// 2nd dice
+var randomNumber2 = Math.floor(Math.random() * 6 + 1);
+var Image2 = "dice" + randomNumber2 + ".png";
+document.querySelectorAll("img")[2].setAttribute("src", Image2);
+
+// 3rd dice
+var randomNumber3 = Math.floor(Math.random() * 6 + 1);
+var Image3 = "dice" + randomNumber3 + ".png";
+document.querySelectorAll("img")[3].setAttribute("src", Image3);
+
+// 4th dice
+var randomNumber3 = Math.floor(Math.random() * 6 + 1);
+var Image4 = "dice" + randomNumber3 + ".png";
+document.querySelectorAll("img")[4].setAttribute("src", Image4);
 
 // Determining winner
 if (noOfChoices === "2") {if (randomNumber1 > randomNumber2) {$("#title").html(choice1 + "wins! 🏆");}
