@@ -59,7 +59,8 @@ var winNo;
 var userChoices = [];
 var chosen;
 var winnerPosition;
-function printWin() {$("#title").html(chosen + " wins! 🏆");}
+function printWin() {$("#title").html(chosen + " wins! 🏆");
+$("#title").addClass("green").removeClass("red");}
 
 // Responding to Submit
 $("#submit").click(function(e) {
@@ -84,11 +85,13 @@ $("#submit").click(function(e) {
   // Winner
   if (noOfChoices === "2") {
     if (randomNumber1 > randomNumber2) {
-      $("#title").html(choice1 + " wins! 🏆");
+      chosen = choice1
+      printWin();
     } else if (randomNumber2 > randomNumber1) {
-      $("#title").html(choice2 + " wins! 🏆");
+      chosen = choice2
+      printWin();
     } else if (randomNumber2 = randomNumber1) {
-      $("#title").html("Oops, try again!");
+      $("#title").html("Oops, try again!").addClass("red").removeClass("green");;
     }
   }
 
@@ -99,7 +102,8 @@ $("#submit").click(function(e) {
     let maxDice = Math.max(...diceValues);
     diceValues.filter(x => x === maxDice).length > 1 ? isTie = "True" : isTie = "False";
     if (isTie === "True") {
-      $("#title").html("Oops, try again!");
+      $("#title").html("Oops, try again!").addClass("red").removeClass("green");;
+
 
     } else if (isTie === "False") {
       winnerPosition = diceValues.indexOf(maxDice);
@@ -116,7 +120,7 @@ $("#submit").click(function(e) {
     let maxDice = Math.max(...diceValues);
     diceValues.filter(x => x === maxDice).length > 1 ? isTie = "True" : isTie = "False";
     if (isTie === "True") {
-      $("#title").html("Oops, try again!");
+      $("#title").html("Oops, try again!").addClass("red").removeClass("green");
 
     } else if (isTie === "False") {
       winnerPosition = diceValues.indexOf(maxDice);

@@ -127,3 +127,8 @@ footer {
 .hidden {
   visibility: hidden;
 }
+
+
+.green {color: green;}
+
+.red {color: #FF6347;}
