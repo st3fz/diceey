@@ -117,36 +117,36 @@ $("#submit").click(function(e) {
   if (noOfChoices === "4") {
     userChoices = [choice1, choice2, choice3, choice4];
 
-    // diceValues.push(randomNumber1, randomNumber2, randomNumber3, randomNumber4);
-    // let maxDice = Math.max(...diceValues);
-    // winnerPosition = diceValues.indexOf(maxDice);
-    // console.log("diceValues: " + diceValues + " \n userChoices: " + userChoices +
-    //  "\n  maxDice " + maxDice );
-    // diceValues.pop(maxDice);
-    // let newMaxDice = Math.max(...diceValues);
-    // if (newMaxDice === maxDice) {
-    //   $("#title").html("Oops, try again!").addClass("red bigger").removeClass("green");
-    // } else  {
-    //   chosen = userChoices[winnerPosition];
-    // printWin();
-    //
-    // }
-    // console.log("diceValues: " + diceValues + " \n userChoices: " + userChoices +
-    //  "\n  maxDice " + maxDice +"\n newMaxDice: " + newMaxDice);
-  }
-
     diceValues.push(randomNumber1, randomNumber2, randomNumber3, randomNumber4);
     let maxDice = Math.max(...diceValues);
-    diceValues.filter(x => x === maxDice).length > 1 ? isTie = "True" : isTie = "False";
-    if (isTie === "True") {
+    winnerPosition = diceValues.indexOf(maxDice);
+    console.log("diceValues: " + diceValues + " \n userChoices: " + userChoices +
+     "\n  maxDice " + maxDice );
+    diceValues.pop(maxDice);
+    let newMaxDice = Math.max(...diceValues);
+    if (newMaxDice === maxDice) {
       $("#title").html("Oops, try again!").addClass("red bigger").removeClass("green");
-
-    } else if (isTie === "False") {
-      winnerPosition = diceValues.indexOf(maxDice);
+    } else  {
       chosen = userChoices[winnerPosition];
     printWin();
-    console.log("winner: " + winnerPosition + " and chosen: " + chosen + "and isTie " + isTie);
+
     }
-  
+    console.log("diceValues: " + diceValues + " \n userChoices: " + userChoices +
+     "\n  maxDice " + maxDice +"\n newMaxDice: " + newMaxDice);
+  }
+
+    // diceValues.push(randomNumber1, randomNumber2, randomNumber3, randomNumber4);
+    // let maxDice = Math.max(...diceValues);
+    // diceValues.filter(x => x === maxDice).length > 1 ? isTie = "True" : isTie = "False";
+    // if (isTie === "True") {
+    //   $("#title").html("Oops, try again!").addClass("red bigger").removeClass("green");
+    //
+    // } else if (isTie === "False") {
+    //   winnerPosition = diceValues.indexOf(maxDice);
+    //   chosen = userChoices[winnerPosition];
+    // printWin();
+    // console.log("winner: " + winnerPosition + " and chosen: " + chosen + "and isTie " + isTie);
+    // }
+    // 
 
 });
