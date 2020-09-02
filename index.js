@@ -147,6 +147,6 @@ $("#submit").click(function(e) {
     printWin();
     console.log("winner: " + winnerPosition + " and chosen: " + chosen + "and isTie " + isTie);
     }
-  }
+  
 
 });
