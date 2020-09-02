@@ -92,7 +92,7 @@ $("#submit").click(function(e) {
       chosen = choice2
       printWin();
     } else if (randomNumber2 = randomNumber1) {
-      $("#title").html("Tie! Please try again!").addClass("red bigger").removeClass("green");;
+      $("#title").html("Tie, please try again!").addClass("red bigger").removeClass("green");;
     }
   }
 
@@ -103,7 +103,7 @@ $("#submit").click(function(e) {
     let maxDice = Math.max(...diceValues);
     diceValues.filter(x => x === maxDice).length > 1 ? isTie = "True" : isTie = "False";
     if (isTie === "True") {
-      $("#title").html("Tie! Please try again!").addClass("red bigger").removeClass("green");;
+      $("#title").html("Tie, please try again!").addClass("red bigger").removeClass("green");;
 
 
     } else if (isTie === "False") {
@@ -119,17 +119,12 @@ if (noOfChoices === "4") { userChoices =[choice1,choice2,choice3,choice4];
   let maxDice = Math.max(...diceValues);
   diceValues.filter(x => x === maxDice).length > 1 ? isTie = "True" : isTie = "False";
   if (isTie === "True") {
-    $("#title").html("Tie! Please try again!").addClass("red bigger").removeClass("green");;
+    $("#title").html("Tie, please try again!").addClass("red bigger").removeClass("green");;
   } else if (isTie === "False") {
     winnerPosition = diceValues.indexOf(maxDice);
     chosen = userChoices[winnerPosition];
   printWin();
   console.log("winner: " + winnerPosition + " and chosen: " + chosen);
-
   }
-
 }
-
-
-
 });
