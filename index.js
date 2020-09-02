@@ -20,7 +20,7 @@ function diceRoll() {
   document.querySelectorAll("img")[3].setAttribute("src", Image3);
 
   randomNumber4 = Math.floor(Math.random() * 6 + 1);
-  Image4 = "dice" + randomNumber3 + ".png";
+  Image4 = "dice" + randomNumber4 + ".png";
   document.querySelectorAll("img")[4].setAttribute("src", Image4);
 }
 
@@ -45,6 +45,7 @@ links.forEach((el) => {
   })
 })
 
+
 // Variables
 var randomNumber1;
 var randomNumber2;
@@ -60,7 +61,7 @@ var userChoices = [];
 var chosen;
 var winnerPosition;
 function printWin() {$("#title").html(chosen + " wins! 🏆");
-$("#title").addClass("green").removeClass("red");}
+$("#title").addClass("green bigger").removeClass("red");}
 
 // Responding to Submit
 $("#submit").click(function(e) {
@@ -91,7 +92,7 @@ $("#submit").click(function(e) {
       chosen = choice2
       printWin();
     } else if (randomNumber2 = randomNumber1) {
-      $("#title").html("Oops, try again!").addClass("red").removeClass("green");;
+      $("#title").html("Oops, try again!").addClass("red bigger").removeClass("green");;
     }
   }
 
@@ -102,7 +103,7 @@ $("#submit").click(function(e) {
     let maxDice = Math.max(...diceValues);
     diceValues.filter(x => x === maxDice).length > 1 ? isTie = "True" : isTie = "False";
     if (isTie === "True") {
-      $("#title").html("Oops, try again!").addClass("red").removeClass("green");;
+      $("#title").html("Oops, try again!").addClass("red bigger").removeClass("green");;
 
 
     } else if (isTie === "False") {
@@ -116,17 +117,36 @@ $("#submit").click(function(e) {
   if (noOfChoices === "4") {
     userChoices = [choice1, choice2, choice3, choice4];
 
+    // diceValues.push(randomNumber1, randomNumber2, randomNumber3, randomNumber4);
+    // let maxDice = Math.max(...diceValues);
+    // winnerPosition = diceValues.indexOf(maxDice);
+    // console.log("diceValues: " + diceValues + " \n userChoices: " + userChoices +
+    //  "\n  maxDice " + maxDice );
+    // diceValues.pop(maxDice);
+    // let newMaxDice = Math.max(...diceValues);
+    // if (newMaxDice === maxDice) {
+    //   $("#title").html("Oops, try again!").addClass("red bigger").removeClass("green");
+    // } else  {
+    //   chosen = userChoices[winnerPosition];
+    // printWin();
+    //
+    // }
+    // console.log("diceValues: " + diceValues + " \n userChoices: " + userChoices +
+    //  "\n  maxDice " + maxDice +"\n newMaxDice: " + newMaxDice);
+  }
+
     diceValues.push(randomNumber1, randomNumber2, randomNumber3, randomNumber4);
     let maxDice = Math.max(...diceValues);
     diceValues.filter(x => x === maxDice).length > 1 ? isTie = "True" : isTie = "False";
     if (isTie === "True") {
-      $("#title").html("Oops, try again!").addClass("red").removeClass("green");
+      $("#title").html("Oops, try again!").addClass("red bigger").removeClass("green");
 
     } else if (isTie === "False") {
       winnerPosition = diceValues.indexOf(maxDice);
       chosen = userChoices[winnerPosition];
     printWin();
-    console.log("winner: " + winnerPosition + " and chosen: " + chosen);
+    console.log("winner: " + winnerPosition + " and chosen: " + chosen + "and isTie " + isTie);
     }
   }
+
 });
